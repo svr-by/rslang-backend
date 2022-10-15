@@ -17,6 +17,7 @@ const userRouter = require('./resources/users/user.router');
 const userTokenRouter = require('./resources/token/token.router');
 const userWordsRouter = require('./resources/userWords/userWord.router');
 const aggregatedWordsRouter = require('./resources/aggregatedWords/aggregatedWord.router');
+const filteredWordsRouter = require('./resources/filteredWords/filteredWord.router');
 const statisticRouter = require('./resources/statistics/statistic.router');
 const settingRouter = require('./resources/settings/setting.router');
 const errorHandler = require('./errors/errorHandler');
@@ -54,6 +55,8 @@ app.use(
 );
 
 app.use('/words', wordRouter);
+
+app.use('/filteredWords', filteredWordsRouter);
 
 app.use('/signin', signinRouter);
 

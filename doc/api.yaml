@@ -156,6 +156,31 @@ paths:
             application/json:
               schema:
                   $ref: "#/components/schemas/Word"
+  /filteredWords:
+    parameters:
+      - name: filter
+        in: query
+        required: true
+        description: Filter by word fields. It should be a stringified object which meet MongoDB Query object conditions.<br>
+          Get all words starting from 'agr'(for example, "agree"):<pre>{"word":{"$regex":"^agr","$options":"i"}}</pre><br>
+        schema:
+          type: string
+    get:
+      tags:
+        - FilteredWords
+      security:
+        []
+      summary: Get filtered words
+      description: Gets filtered words
+      responses:
+        200:
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Word"                
   /users:
     post:
       tags:
